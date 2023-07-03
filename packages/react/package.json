@@ -1,0 +1,23 @@
+{
+  "name": "@sensoro-design/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@lit-labs/react": "^1.2.0",
+    "@sensoro-design/web-components": "^1.0.0"
+  }
+}

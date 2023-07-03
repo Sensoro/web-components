@@ -1,0 +1,8 @@
+{
+  "name": "sensoro-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "bin": {
+    "sensoro-scripts": "bin/sensoro-scripts.js"
+  }
+}

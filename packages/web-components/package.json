@@ -1,0 +1,54 @@
+{
+  "name": "@sensoro-design/web-components",
+  "version": "1.0.0",
+  "description": "A forward-thinking library of web components.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "homepage": "https://github.com/sensoro/sensoro-web-components",
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "custom-elements.json"
+  ],
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "metadata": "cem analyze --litelement",
+    "metadata:watch": "cem analyze --litelement --watch"
+  },
+  "sideEffects": false,
+  "customElements": "custom-elements.json",
+  "keywords": [
+    "web components",
+    "custom elements",
+    "components"
+  ],
+  "author": "wangxingkang",
+  "authors": [
+    "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sensoro/sensoro-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sensoro/sensoro-web-components/issues"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "^3.6.0",
+    "lit": "^2.7.5"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.8.3",
+    "cem-plugin-vs-code-custom-data-generator": "^1.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  }
+}
