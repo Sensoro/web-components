@@ -1,7 +1,9 @@
 import { LitElement, html } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
-import { styles } from './style';
+import { styles } from './style/';
+
+const prefixCls = 's-button'
 
 /**
  * @summary 按钮组件
@@ -9,7 +11,7 @@ import { styles } from './style';
  * @status stable
  * @since 2.0
  */
-@customElement('l-button')
+@customElement('s-button')
 export class Button extends LitElement {
   static override styles = styles;
 
@@ -20,6 +22,10 @@ export class Button extends LitElement {
   /** 按钮主题 */
   @property({ reflect: true })
   theme: 'solid' | 'borderless' | 'light' = 'light';
+
+  /** 按钮形状 */
+  @property({ reflect: true })
+  shape: 'circle' | 'round' = 'round';
 
   /** 按钮大小 */
   @property({ reflect: true })
@@ -41,13 +47,13 @@ export class Button extends LitElement {
     return html`
       <button
         class=${classMap({
-          'l-button': true,
-          [`l-button-${this.type}`]: true,
-          [`l-button-${this.theme}`]: true,
-          [`l-button-${this.size}`]: this.size !== 'default',
-          'l-button-block': this.block,
-          'l-button-loading': this.loading,
-          'l-button-disabled': this.disabled,
+          [prefixCls]: true,
+          [`${prefixCls}-${this.type}`]: true,
+          [`${prefixCls}-${this.theme}`]: true,
+          [`${prefixCls}-${this.size}`]: this.size !== 'default',
+          [`${prefixCls}-block`]: this.block,
+          [`${prefixCls}-loading`]: this.loading,
+          [`${prefixCls}-disabled`]: this.disabled,
         })}
       >
         <slot part="label"></slot>
