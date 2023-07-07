@@ -4,10 +4,10 @@
     "start": "wireit",
     "make": "wireit",
     "make:react": "wireit",
+    "make:style": "wireit",
     "make:metadata": "wireit",
     "make:metadata:watch": "pnpm make:metadata -- --watch",
     "build:react": "wireit",
-    "build:less": "sensoro-scripts build-less",
     "prepare": "husky install"
   },
   "license": "MIT",
@@ -48,6 +48,7 @@
     "make:react": {
       "command": "sensoro-scripts make-react",
       "dependencies": [
+        "make:style",
         "make:metadata"
       ]
     },
@@ -58,6 +59,16 @@
       ],
       "output": [
         "./packages/web-comppnents/custom-elements.json"
+      ]
+    },
+    "make:style": {
+      "command": "sensoro-scripts mark-style",
+      "files": [
+        "./packages/web-comppnents/src/components/**/style/*.less"
+      ],
+      "output": [
+        "./packages/web-comppnents/src/components/**/style/*.css",
+        "./packages/web-comppnents/src/components/**/style/*.ts"
       ]
     },
     "build:react": {

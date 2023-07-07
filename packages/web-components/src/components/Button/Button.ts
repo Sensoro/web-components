@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
-import { styles } from './style/';
+import { styles } from './style';
 
 const prefixCls = 's-button'
 

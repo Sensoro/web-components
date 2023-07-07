@@ -4,7 +4,7 @@ import prettier from '@umijs/utils/compiled/prettier';
 // @ts-ignore
 import prettierConfig from '../.prettierrc.js';
 import { glob, fsExtra } from '@umijs/utils';
-import { PATHS } from './.internal/constants';
+import { PATHS } from './.internal/constants.js';
 
 (async () => {
   const files = glob.sync('**/*.less', {
