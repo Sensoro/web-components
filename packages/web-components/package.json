@@ -43,6 +43,10 @@
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.8.3",
+    "@open-wc/testing": "^3.2.0",
+    "@web/test-runner": "^0.16.1",
+    "@web/test-runner-commands": "^0.7.0",
+    "@web/test-runner-playwright": "^0.10.1",
     "cem-plugin-vs-code-custom-data-generator": "^1.4.1"
   },
   "publishConfig": {
