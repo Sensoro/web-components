@@ -1,29 +1,38 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "es2017",
     "module": "es2020",
-    "lib": ["es2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "dom",
+      "dom.Iterable",
+      "es2020"
+    ],
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "inlineSources": true,
+    "rootDir": ".",
     "strict": true,
+    "strictPropertyInitialization": false,
+    "strictFunctionTypes": false,
+    "noImplicitThis": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
+    /* See https://lit.dev/docs/components/properties/#avoiding-issues-with-class-fields */
+    "useDefineForClassFields": false,
+    "removeComments": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitOverride": true,
-    "plugins": [
-      {
-        "name": "ts-lit-plugin",
-        "strict": true
-      }
+    "useUnknownInCatchVariables": true,
+    "baseUrl": ".",
+    "types": [
+      "user-agent-data-types"
     ]
-  }
+  },
+  "include": [
+    "src"
+  ]
 }
