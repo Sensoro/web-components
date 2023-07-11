@@ -5,6 +5,8 @@ dist
 
 packages/react/src/**
 
+**/components/**/style/index.ts
+
 *.css
 custom-elements.json
 .wireit/
