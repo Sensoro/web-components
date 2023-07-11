@@ -2,16 +2,17 @@
   "private": true,
   "scripts": {
     "start": "wireit",
-    "make": "wireit",
     "make:react": "wireit",
     "make:style": "wireit",
     "make:metadata": "wireit",
-    "make:metadata:watch": "pnpm make:metadata -- --watch",
+    "build:wc": "wireit",
     "build:react": "wireit",
     "prepare": "husky install"
   },
   "license": "MIT",
   "devDependencies": {
+    "@sensoro-design/react": "workspace:*",
+    "@sensoro-design/web-components": "workspace:*",
     "@commitlint/cli": "^17.6.6",
     "@types/less": "^3.0.3",
     "@types/node": "^20.3.2",
@@ -37,43 +38,72 @@
     "start": {
       "command": "pnpm --parallel --filter docs start",
       "dependencies": [
-        "make"
+        "make:wc",
+        "make:react"
       ]
     },
-    "make": {
+    "make:wc": {
       "dependencies": [
-        "make:react"
+        "make:style",
+        "make:metadata"
       ]
     },
     "make:react": {
       "command": "sensoro-scripts make-react",
+      "files": [
+        "./packages/web-components/custom-elements.json"
+      ],
       "dependencies": [
-        "make:style",
         "make:metadata"
       ]
     },
     "make:metadata": {
       "command": "pnpm --parallel --filter @sensoro-design/web-components metadata",
       "files": [
-        "./packages/web-comppnents/src/**/*.ts"
+        "./packages/web-components/src/components/**/*.ts"
       ],
       "output": [
-        "./packages/web-comppnents/custom-elements.json"
+        "./packages/web-components/custom-elements.json"
       ]
     },
     "make:style": {
       "command": "sensoro-scripts mark-style",
       "files": [
-        "./packages/web-comppnents/src/components/**/style/*.less"
+        "scripts/mark-style.ts",
+        "./packages/web-components/src/components/**/style/*.less",
+        "./packages/web-components/src/themes/*.less"
       ],
       "output": [
-        "./packages/web-comppnents/src/components/**/style/*.css",
-        "./packages/web-comppnents/src/components/**/style/*.ts"
+        "./packages/web-components/src/components/**/style/*.css",
+        "./packages/web-components/src/components/**/style/*.ts",
+        "./packages/web-components/src/themes/*.css"
       ]
     },
     "build:react": {
+      "command": "pnpm --parallel --filter @sensoro-design/react build",
+      "files": [
+        "./packages/react/src/**/*"
+      ],
+      "output": [
+        "./packages/react/es/**/*",
+        "./packages/react/lib/**/*"
+      ],
       "dependencies": [
-        "./packages/react:build"
+        "make:react"
+      ]
+    },
+    "build:wc": {
+      "command": "pnpm --parallel --filter @sensoro-design/web-components build",
+      "files": [
+        "./packages/web-components/src/**/*"
+      ],
+      "output": [
+        "./packages/web-components/es/**/*",
+        "./packages/web-components/lib/**/*"
+      ],
+      "dependencies": [
+        "make:style",
+        "make:metadata"
       ]
     }
   }

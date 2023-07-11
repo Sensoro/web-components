@@ -1,20 +1,21 @@
 import 'zx/globals';
 import path from 'node:path';
 import prettier from '@umijs/utils/compiled/prettier';
-// @ts-ignore
-import prettierConfig from '../.prettierrc.js';
 import { glob, fsExtra } from '@umijs/utils';
+import { watch } from './.internal/watch';
 import { PATHS } from './.internal/constants.js';
 
-(async () => {
-  const files = glob.sync('**/*.less', {
+const commandLineArgs = require('command-line-args')
+
+const args = commandLineArgs([{ name: 'watch', type: Boolean }]);
+
+async function componentStyle() {
+  const files = glob.sync('src/components/**/*.less', {
     cwd: PATHS.WEB_COMPONENTS,
     ignore: [
-      '**/styles/**',
-      '**/themes/**',
-      '**/.internal/**',
+      '**/internal/**',
     ],
-  })
+  });
 
   for (const file of files) {
     const lessPath = path.join(PATHS.WEB_COMPONENTS, file);
@@ -32,12 +33,41 @@ import { PATHS } from './.internal/constants.js';
 
         export const styles = css\`${content}\`;
       `,
-      Object.assign(prettierConfig, {
-        parser: 'babel-ts'
-      })
+      {
+        parser: 'typescript',
+      }
     );
 
     /** 编辑 less */
     fsExtra.writeFileSync(`${tsPath}`, source);
   }
+}
+
+async function theme() {
+  const files = glob.sync('src/themes/*.less', {
+    cwd: PATHS.WEB_COMPONENTS,
+    ignore: [
+      '**/internal/**',
+    ],
+  });
+
+  for (const file of files) {
+    const lessPath = path.join(PATHS.WEB_COMPONENTS, file);
+
+    /** 编辑 less */
+    await $`lessc ${lessPath} ${lessPath.replace('.less', '.css')} --js`;
+  }
+}
+
+(async () => {
+  await theme();
+  await componentStyle();
 })();
+
+if (args.watch) {
+  watch(['src/components/**/*.less'], {
+    cwd: PATHS.WEB_COMPONENTS
+  }).on('change', async () => {
+    await componentStyle();
+  })
+}

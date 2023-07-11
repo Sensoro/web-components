@@ -1,7 +1,5 @@
 import 'zx/globals';
 import prettier from '@umijs/utils/compiled/prettier';
-// @ts-ignore
-import prettierConfig from '../.prettierrc.js';
 import { PATHS } from './.internal/constants';
 import { getAllComponents } from './utils';
 
@@ -13,13 +11,12 @@ const index: string[] = [];
 
   const components = getAllComponents(metadata);
 
-  components.map(component => {
+  components.forEach(component => {
+    if (!component.tagName) return;
     const tagWithoutPrefix = component.tagName.replace(/^l-/, '');
     const componentDir = path.join(reactDir, tagWithoutPrefix);
     const componentFile = path.join(componentDir, 'index.ts');
-    const importPath = component.path
-      .replace(/^src\//, '@sensoro-design/web-components/es/')
-      .replace('.ts', '');
+    const importPath = '@sensoro-design/web-components/es/' + component.path
     const events = (component.events || []).map((event: any) => `${event.reactName}: '${event.name}'`).join(',\n');
 
     fs.mkdirSync(componentDir, { recursive: true });
@@ -39,9 +36,9 @@ const index: string[] = [];
           }
         });
       `,
-      Object.assign(prettierConfig, {
-        parser: 'babel-ts'
-      })
+      {
+        parser: 'typescript',
+      }
     );
 
     index.push(`export { default as ${component.name} } from './${tagWithoutPrefix}/index.js';`);
