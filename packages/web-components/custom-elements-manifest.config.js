@@ -1,5 +1,6 @@
-import fs from 'fs';
-import { generateCustomData } from 'cem-plugin-vs-code-custom-data-generator';
+const fs = require('fs');
+const { parse } = require('comment-parser');
+const { pascalCase } = require('pascal-case');
 
 const packageData = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const {
@@ -10,8 +11,6 @@ const {
   homepage,
   license
 } = packageData;
-
-const outdir = '';
 
 function noDash(string) {
   return string.replace(/^\s?-/, '').trim();
@@ -25,9 +24,12 @@ function replace(string, terms) {
   return string;
 }
 
-export default {
+module.exports = {
   globs: ['src/components/**/*.ts'],
-  exclude: ['**/style/**', '**/__tests__/**'],
+  exclude: [
+    '**/style/**',
+    '**/__tests__/**'
+  ],
   plugins: [
     // Append package data
     {
@@ -162,9 +164,9 @@ export default {
     },
 
     // Generate custom VS Code data
-    generateCustomData({
-      outdir,
-      cssFileName: null
-    })
+    // generateCustomData({
+    //   outdir,
+    //   cssFileName: null
+    // })
   ],
 }

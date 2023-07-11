@@ -6,8 +6,8 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "scripts": {
-    "dev": "father dev",
-    "build": "father build"
+    "build": "pnpm build:tsc && father build",
+    "build:tsc": "tsc --project ./tsconfig.prod.json --outdir es"
   },
   "files": [
     "es",
