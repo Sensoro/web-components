@@ -9,6 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.5.2",
     "@sensoro-design/react": "workspace:*",
     "@sensoro-design/web-components": "workspace:*"
   },
