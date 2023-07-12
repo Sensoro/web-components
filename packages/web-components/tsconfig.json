@@ -29,6 +29,7 @@
     "useUnknownInCatchVariables": true,
     "baseUrl": ".",
     "types": [
+      "mocha",
       "user-agent-data-types"
     ]
   },
