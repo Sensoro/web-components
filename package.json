@@ -5,12 +5,21 @@
     "make:react": "wireit",
     "make:style": "wireit",
     "make:metadata": "wireit",
+    "build": "wireit",
     "build:wc": "wireit",
     "build:react": "wireit",
+    "install:frozen": "wireit",
+    "version": "wireit",
+    "release": "wireit",
+    "release:rc": "wireit",
+    "release:beta": "changeset pre enter beta",
+    "release:alpha": "changeset pre enter alpha",
+    "publish": "changeset publish",
     "prepare": "husky install"
   },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.6.6",
     "@pansy/commitlint-config": "^1.0.0",
     "@sensoro-design/web": "workspace:*",
@@ -115,6 +124,41 @@
         "make:style",
         "make:metadata"
       ]
+    },
+    "release": {
+      "command": "changeset publish",
+      "dependencies": [
+        "build:wc",
+        "build:react"
+      ]
+    },
+    "release:rc": {
+      "command": "changeset pre exit",
+      "dependencies": [
+        "changeset:release:rc"
+      ]
+    },
+    "changeset:release:rc": {
+      "command": "changeset pre enter rc",
+      "dependencies": [
+        "build",
+        "version"
+      ]
+    },
+    "build": {
+      "dependencies": [
+        "build:wc",
+        "build:react"
+      ]
+    },
+    "version": {
+      "command": "changeset version",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "install:frozen": {
+      "command": "pnpm install --frozen-lockfile false"
     }
   }
 }
