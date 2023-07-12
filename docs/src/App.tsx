@@ -1,4 +1,4 @@
-import { Button, ImageComparer } from '@sensoro-design/react';
+import { Button, ImageComparer } from '@sensoro-design/web-react';
 
 export const App = () => {
   return (

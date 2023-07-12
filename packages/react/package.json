@@ -1,5 +1,5 @@
 {
-  "name": "@sensoro-design/react",
+  "name": "@sensoro-design/web-react",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -18,6 +18,6 @@
   "license": "MIT",
   "dependencies": {
     "@lit-labs/react": "^1.2.0",
-    "@sensoro-design/web-components": "^1.0.0"
+    "@sensoro-design/web": "^1.0.0"
   }
 }

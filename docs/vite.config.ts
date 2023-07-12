@@ -6,9 +6,9 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 export default defineConfig({
   resolve: {
     alias: {
-      '@sensoro-design/react': path.join(__dirname, '../packages/react/src/index.ts'),
-      '@sensoro-design/web-components/es': path.join(__dirname, '../packages/web-components/src'),
-      '@sensoro-design/web-components': path.join(__dirname, '../packages/web-components/src')
+      '@sensoro-design/web-react': path.join(__dirname, '../packages/react/src/index.ts'),
+      '@sensoro-design/web/es': path.join(__dirname, '../packages/web-components/src'),
+      '@sensoro-design/web': path.join(__dirname, '../packages/web-components/src')
     }
   },
   server: {

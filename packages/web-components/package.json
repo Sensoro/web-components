@@ -1,5 +1,5 @@
 {
-  "name": "@sensoro-design/web-components",
+  "name": "@sensoro-design/web",
   "version": "1.0.0",
   "description": "A forward-thinking library of web components.",
   "main": "lib/index.js",

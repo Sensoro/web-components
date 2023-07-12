@@ -16,7 +16,7 @@ const index: string[] = [];
     const tagWithoutPrefix = component.tagName.replace(/^l-/, '');
     const componentDir = path.join(reactDir, tagWithoutPrefix);
     const componentFile = path.join(componentDir, 'index.ts');
-    const importPath = '@sensoro-design/web-components/es/' + component.path
+    const importPath = '@sensoro-design/web/es/' + component.path
     const events = (component.events || []).map((event: any) => `${event.reactName}: '${event.name}'`).join(',\n');
 
     fs.mkdirSync(componentDir, { recursive: true });

@@ -11,8 +11,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@sensoro-design/react": "workspace:*",
-    "@sensoro-design/web-components": "workspace:*",
+    "@sensoro-design/web": "workspace:*",
+    "@sensoro-design/web-react": "workspace:*",
     "@commitlint/cli": "^17.6.6",
     "@types/mocha": "^10.0.1",
     "@types/less": "^3.0.3",
@@ -59,7 +59,7 @@
       ]
     },
     "make:metadata": {
-      "command": "pnpm --parallel --filter @sensoro-design/web-components metadata",
+      "command": "pnpm --parallel --filter @sensoro-design/web metadata",
       "files": [
         "./packages/web-components/src/components/**/*.ts"
       ],
@@ -81,7 +81,7 @@
       ]
     },
     "build:react": {
-      "command": "pnpm --parallel --filter @sensoro-design/react build",
+      "command": "pnpm --parallel --filter @sensoro-design/web-react build",
       "files": [
         "./packages/react/src/**/*"
       ],
@@ -94,7 +94,7 @@
       ]
     },
     "build:wc": {
-      "command": "pnpm --parallel --filter @sensoro-design/web-components build",
+      "command": "pnpm --parallel --filter @sensoro-design/web build",
       "files": [
         "./packages/web-components/src/**/*"
       ],

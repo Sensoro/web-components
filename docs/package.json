@@ -10,8 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "@shoelace-style/shoelace": "^2.5.2",
-    "@sensoro-design/react": "workspace:*",
-    "@sensoro-design/web-components": "workspace:*"
+    "@sensoro-design/web": "workspace:*",
+    "@sensoro-design/web-react": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.1",
