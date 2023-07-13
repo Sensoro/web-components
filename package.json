@@ -9,13 +9,17 @@
     "build:wc": "wireit",
     "build:react": "wireit",
     "install:frozen": "wireit",
-    "version": "wireit",
-    "release": "wireit",
     "release:rc": "wireit",
-    "release:beta": "changeset pre enter beta",
-    "release:alpha": "changeset pre enter alpha",
-    "publish": "changeset publish",
-    "prepare": "husky install"
+    "release:enter-pre-beta": "[ ! -f .changeset/pre.json ] && pnpm changeset pre enter beta || echo 'Already in pre mode'",
+    "changeset": "changeset",
+    "changeset:pre-rc": "wireit",
+    "changeset:pre-beta": "wireit",
+    "changeset:pre-alpha": "wireit",
+    "changeset:pre-exit": "wireit",
+    "changeset:version": "wireit",
+    "changeset:publish": "wireit",
+    "prepare": "husky install",
+    "preinstall": "npx only-allow pnpm"
   },
   "license": "MIT",
   "devDependencies": {
@@ -98,6 +102,12 @@
         "./packages/web-components/src/themes/*.css"
       ]
     },
+    "build": {
+      "dependencies": [
+        "build:wc",
+        "build:react"
+      ]
+    },
     "build:react": {
       "command": "pnpm --parallel --filter @sensoro-design/web-react build",
       "files": [
@@ -128,34 +138,43 @@
     "release": {
       "command": "changeset publish",
       "dependencies": [
-        "build:wc",
-        "build:react"
+        "changeset:version",
+        "build"
       ]
     },
     "release:rc": {
-      "command": "changeset pre exit",
+      "command": "pnpm release && changeset pre exit",
       "dependencies": [
-        "changeset:release:rc"
+        "changeset:pre-rc"
       ]
     },
-    "changeset:release:rc": {
-      "command": "changeset pre enter rc",
+    "changeset:version": {
+      "command": "changeset version"
+    },
+    "changeset:version-rc": {
+      "command": "changeset version",
       "dependencies": [
-        "build",
-        "version"
+        "changeset:pre-rc"
       ]
     },
-    "build": {
+    "changeset:publish": {
+      "command": "changeset publish",
       "dependencies": [
         "build:wc",
         "build:react"
       ]
     },
-    "version": {
-      "command": "changeset version",
-      "dependencies": [
-        "build"
-      ]
+    "changeset:pre-rc": {
+      "command": "changeset pre enter rc"
+    },
+    "changeset:pre-beta": {
+      "command": "changeset pre enter beta"
+    },
+    "changeset:pre-alpha": {
+      "command": "changeset pre enter alpha"
+    },
+    "changeset:pre-exit": {
+      "command": "changeset pre exit"
     },
     "install:frozen": {
       "command": "pnpm install --frozen-lockfile false"

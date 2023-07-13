@@ -1,12 +1,24 @@
 node_modules
-lib
-es
+.DS_Store
+
+packages/*/lib/
+packages/*/es/
 dist
 
 packages/react/src/**
 
 **/components/**/style/index.ts
 
+.changeset/pre.json
+
 *.css
 custom-elements.json
 .wireit/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
