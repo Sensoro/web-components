@@ -1,15 +1,23 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "Sensoro/web-components"
+    }
+  ],
   "commit": false,
   "fixed": [],
-  "linked": [],
-  "access": "restricted",
+  "linked": [["@sensoro-design/web", "@sensoro-design/web-react", "@sensoro-design/web-icons"]],
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": ["docs", "sensoro-scripts"],
   "snapshot": {
     "useCalculatedVersion": true,
     "prereleaseTemplate": "{tag}-{commit}-{datetime}"
+  },
+  "access": "public",
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
   }
 }
