@@ -10,6 +10,7 @@ packages/react/src/**
 **/components/**/style/index.ts
 
 .changeset/pre.json
+.changeset/moody-*
 
 *.css
 custom-elements.json
