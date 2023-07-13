@@ -23,6 +23,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.6.6",
     "@pansy/commitlint-config": "^1.0.0",
@@ -179,5 +180,10 @@
     "install:frozen": {
       "command": "pnpm install --frozen-lockfile false"
     }
+  },
+  "packageManager": "pnpm@8.6.2",
+  "engines": {
+    "node": ">=14",
+    "pnpm": "^8.6.2"
   }
 }
