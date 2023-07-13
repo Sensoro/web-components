@@ -3,6 +3,8 @@
 :root,
 :host,
 .s-theme-default {
+  // -------- Colors -----------
+
   --s-color-blue-0: @blue-0;
   --s-color-blue-1: @blue-1;
   --s-color-blue-2: @blue-2;
@@ -69,13 +71,10 @@
   --s-color-grey-bg-8: @grey-opacity-8;
   --s-color-grey-bg-9: @grey-opacity-9;
 
-  /*
-   * Color Primitives
-   */
-
   --s-color-white: #fff;
   --s-color-black: #000;
 
+  // >>> Primary
   --s-color-primary: var(--s-color-blue-5);
   --s-color-primary-hover: var(--s-color-blue-4);
   --s-color-primary-active: var(--s-color-blue-6);
@@ -83,6 +82,7 @@
   --s-color-primary-bg: var(--s-color-blue-1);
   --s-color-primary-bg-light: var(--s-color-blue-0);
 
+  // >>> Success
   --s-color-success: var(--s-color-green-5);
   --s-color-success-hover: var(--s-color-green-4);
   --s-color-success-active: var(--s-color-green-6);
@@ -90,6 +90,7 @@
   --s-color-success-bg: var(--s-color-green-1);
   --s-color-success-bg-light: var(--s-color-green-0);
 
+  // >>> Error
   --s-color-error: var(--s-color-red-5);
   --s-color-error-hover: var(--s-color-red-4);
   --s-color-error-active: var(--s-color-red-6);
@@ -97,6 +98,7 @@
   --s-color-error-bg: var(--s-color-red-1);
   --s-color-error-bg-light: var(--s-color-red-0);
 
+  // >>> Warning
   --s-color-warning: var(--s-color-gold-5);
   --s-color-warning-hover: var(--s-color-gold-4);
   --s-color-warning-active: var(--s-color-gold-6);
@@ -144,9 +146,22 @@
   --s-border-radius-small: 2px;
   --s-border-radius: 4px;
   --s-border-radius-large: 8px;
-
   --s-border-radius-circle: 50%;
   --s-border-radius-pill: 9999px;
+
+  // vertical margins
+  --s-margin-lg: 24px;
+  --s-margin-md: 16px;
+  --s-margin-sm: 12px;
+  --s-margin-xs: 8px;
+  --s-margin-xss: 4px;
+
+  // vertical paddings
+  --s-padding-lg: 24px;
+  --s-padding-md: 16px;
+  --s-padding-sm: 12px;
+  --s-padding-xs: 8px;
+  --s-padding-xss: 4px;
 
   --s-border-width: 1px;
 }
