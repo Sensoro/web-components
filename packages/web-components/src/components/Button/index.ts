@@ -3,7 +3,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './style';
 
-const prefixCls = 's-button'
+const prefixCls = 's-button';
 
 /**
  * @summary 按钮组件
@@ -17,7 +17,7 @@ export class Button extends LitElement {
 
   /** 按钮类型 */
   @property({ reflect: true })
-  type: 'primary' | 'secondary' | 'tertiary' | 'warning' | 'danger' = 'primary';
+  type: 'primary' | 'secondary' | 'warning' | 'danger' = 'primary';
 
   /** 按钮主题 */
   @property({ reflect: true })
