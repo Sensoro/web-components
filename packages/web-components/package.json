@@ -55,7 +55,8 @@
     "user-agent-data-types": "^0.3.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "engines": {
     "node": ">=14.17.0"
