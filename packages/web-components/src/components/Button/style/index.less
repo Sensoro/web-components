@@ -1,27 +1,93 @@
 @import '../../../styles/index';
 
-@button-prefix-cls: ~'@{sen-prefix}-button';
+@button-prefix-cls: ~'@{sen-prefix}-btn';
 
 .@{button-prefix-cls} {
-  display: inline-block;
-  cursor: pointer;
-  height: 32px;
-  font-size: var(--s-font-size);
-  line-height: var(--s-line-height);
-  border-radius: var(--s-border-radius);
-  user-select: none;
-  padding: 6px 12px;
-  margin: 0;
-  border: 0 solid transparent;
-  box-shadow: none;
-  padding: 6px 12px;
-  font-weight: 600;
   outline: none;
-  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
   white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  background-color: transparent;
+  border: var(--s-line-width) solid transparent;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  line-height: var(--s-line-height);
+  color: var(--s-color-text);
+
+  font-size: var(--s-font-size);
+  height: var(--s-control-height);
+  padding: 4px 11px;
+  border-radius: var(--s-border-radius-small);
+
+  &:disabled > * {
+    pointer-events: none;
+  }
+
+  > span {
+    display: inline-block;
+  }
+
+  &-default {
+    background-color: var(--s-color-grey-opacity-1);
+
+    &:hover:not(:disabled) {
+      background-color: var(--s-color-grey-opacity-3);
+    }
+
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      background-color: var(--s-color-grey-opacity-4);
+    }
+
+    &:disabled {
+      color: var(--s-color-grey-opacity-6);
+      background: var(--s-color-grey-opacity-2);
+    }
+  }
 
   &-primary {
+    border-color: var(--s-color-primary);
     background-color: var(--s-color-primary);
     color: var(--s-color-white);
+
+    &:focus:not(:disabled),
+    &:hover:not(:disabled) {
+      border-color: var(--s-color-primary-hover);
+      background-color: var(--s-color-primary-hover);
+    }
+
+    &:active:not(:disabled) {
+      border-color: var(--s-color-primary-active);
+      background-color: var(--s-color-primary-active);
+    }
+
+    &:disabled {
+      border-color: var(--s-color-primary-disabled);
+      background-color: var(--s-color-primary-disabled);
+    }
+  }
+
+  &-dashed {
+    color: var(--s-color-primary);
+    border-style: dashed;
+    border-color: var(--s-color-grey-opacity-4);
+    background-color: var(--s-color-grey-opacity-1);
+
+    &:focus:not(:disabled),
+    &:hover:not(:disabled) {
+      background-color: var(--s-color-grey-opacity-3);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--s-color-grey-opacity-4);
+    }
+
+    &:disabled {
+      color: var(--s-color-primary-disabled);
+    }
   }
 }

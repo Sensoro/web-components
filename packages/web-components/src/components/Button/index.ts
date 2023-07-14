@@ -1,9 +1,18 @@
 import { LitElement, html } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { styles } from './style';
 
-const prefixCls = 's-button';
+type ButtonType = 'small' | 'default' | 'large';
+
+const prefixCls = 's-btn';
+
+const sizeClassNameMap: Record<ButtonType, string | undefined> = {
+  large: 'lg',
+  small: 'sm',
+  default: undefined,
+};
 
 /**
  * @summary 按钮组件
@@ -15,17 +24,15 @@ const prefixCls = 's-button';
 export class Button extends LitElement {
   static override styles = styles;
 
+  @query(`.${prefixCls}`) button: HTMLButtonElement | HTMLLinkElement;
+
   /** 按钮类型 */
   @property({ reflect: true })
-  type: 'primary' | 'secondary' | 'warning' | 'danger' = 'primary';
-
-  /** 按钮主题 */
-  @property({ reflect: true })
-  theme: 'solid' | 'borderless' | 'light' = 'light';
+  type: 'default' | 'primary' | 'dashed' | 'link' | 'text' = 'default';
 
   /** 按钮形状 */
   @property({ reflect: true })
-  shape: 'circle' | 'round' = 'round';
+  shape: ButtonType = 'default';
 
   /** 按钮大小 */
   @property({ reflect: true })
@@ -39,24 +46,45 @@ export class Button extends LitElement {
   @property({ type: Boolean, reflect: true })
   loading = false;
 
+  /** 幽灵属性，使按钮背景透明 */
+  @property({ type: Boolean, reflect: true })
+  ghost = false;
+
+  /** 设置危险按钮 */
+  @property({ type: Boolean, reflect: true })
+  danger = false;
+
   /** 将按钮宽度调整为其父宽度的选项 */
   @property({ type: Boolean, reflect: true })
   block = false;
 
+  @property() href = '';
+
+  private isLink() {
+    return !!this.href;
+  }
+
   override render() {
+    const isLink = this.isLink();
+
+    const sizeCls = this.size ? sizeClassNameMap[this.size] || '' : '';
+
     return html`
       <button
         class=${classMap({
           [prefixCls]: true,
-          [`${prefixCls}-${this.type}`]: true,
-          [`${prefixCls}-${this.theme}`]: true,
-          [`${prefixCls}-${this.size}`]: this.size !== 'default',
+          [`${prefixCls}-${this.shape}`]: this.shape !== 'default' && this.shape,
+          [`${prefixCls}-${this.type}`]: this.type,
+          [`${prefixCls}-${sizeCls}`]: sizeCls,
           [`${prefixCls}-block`]: this.block,
           [`${prefixCls}-loading`]: this.loading,
-          [`${prefixCls}-disabled`]: this.disabled,
+          [`${prefixCls}-dangerous`]: this.danger,
         })}
+        ?disabled=${ifDefined(isLink ? undefined : this.disabled)}
       >
-        <slot part="label"></slot>
+        <span>
+          <slot part="label"></slot>
+        </span>
       </button>
     `;
   }

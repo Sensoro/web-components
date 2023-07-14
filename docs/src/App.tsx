@@ -3,7 +3,20 @@ import { Button, ImageComparer } from '@sensoro-design/web-react';
 export const App = () => {
   return (
     <>
-      <Button>Primary</Button>
+      <Button type="primary">主要按钮</Button>
+      <Button>默认按钮</Button>
+      <Button type="dashed">虚框按钮</Button>
+
+      <br />
+      <br />
+
+      <Button type="primary" disabled>
+        主要按钮
+      </Button>
+      <Button disabled>默认按钮</Button>
+      <Button type="dashed" disabled>
+        虚框按钮
+      </Button>
 
       <br />
       <br />
@@ -21,5 +34,5 @@ export const App = () => {
         />
       </ImageComparer>
     </>
-  )
-}
+  );
+};

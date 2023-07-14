@@ -94,11 +94,11 @@
       "command": "sensoro-scripts mark-style",
       "files": [
         "scripts/mark-style.ts",
-        "./packages/web-components/src/components/**/style/*.less",
+        "./packages/web-components/src/components/**/*.less",
         "./packages/web-components/src/themes/*.less"
       ],
       "output": [
-        "./packages/web-components/src/components/**/style/*.css",
+        "./packages/web-components/src/components/**/*.css",
         "./packages/web-components/src/components/**/style/*.ts",
         "./packages/web-components/src/themes/*.css"
       ]

@@ -60,16 +60,16 @@
   --s-color-grey-8: @grey-8;
   --s-color-grey-9: @grey-9;
 
-  --s-color-grey-bg-0: @grey-opacity-0;
-  --s-color-grey-bg-1: @grey-opacity-1;
-  --s-color-grey-bg-2: @grey-opacity-2;
-  --s-color-grey-bg-3: @grey-opacity-3;
-  --s-color-grey-bg-4: @grey-opacity-4;
-  --s-color-grey-bg-5: @grey-opacity-5;
-  --s-color-grey-bg-6: @grey-opacity-6;
-  --s-color-grey-bg-7: @grey-opacity-7;
-  --s-color-grey-bg-8: @grey-opacity-8;
-  --s-color-grey-bg-9: @grey-opacity-9;
+  --s-color-grey-opacity-0: @grey-opacity-0; // opacity: 0.02
+  --s-color-grey-opacity-1: @grey-opacity-1; // opacity: 0.04
+  --s-color-grey-opacity-2: @grey-opacity-2; // opacity: 0.06
+  --s-color-grey-opacity-3: @grey-opacity-3; // opacity: 0.08
+  --s-color-grey-opacity-4: @grey-opacity-4; // opacity: 0.15
+  --s-color-grey-opacity-5: @grey-opacity-5; // opacity: 0.25
+  --s-color-grey-opacity-6: @grey-opacity-6; // opacity: 0.35
+  --s-color-grey-opacity-7: @grey-opacity-7; // opacity: 0.60
+  --s-color-grey-opacity-8: @grey-opacity-8; // opacity: 0.80
+  --s-color-grey-opacity-9: @grey-opacity-9; // opacity: 1
 
   --s-color-white: #fff;
   --s-color-black: #000;
@@ -148,6 +148,23 @@
   --s-border-radius-large: 8px;
   --s-border-radius-circle: 50%;
   --s-border-radius-pill: 9999px;
+
+  --s-color-border: var(--s-color-grey-opacity-3);
+  --s-color-border-dashed: var(--s-color-grey-opacity-4);
+
+  --s-color-text: var(--s-color-grey-9);
+
+  --s-line-width: 1px;
+
+  --s-control-height: 32px;
+
+  // box-shadow
+  --s-box-shadow: 0 1px 2px -2px rgba(10, 27, 57, 0.12), 0 3px 6px 0 rgba(10, 27, 57, 0.08),
+    0 5px 12px 4px rgba(10, 27, 57, 0.06);
+  --s-box-shadow-secondary: 0 3px 6px -4px rgba(10, 27, 57, 0.08), 0 6px 16px 0 rgba(10, 27, 57, 0.06),
+    0 9px 28px 8px rgba(10, 27, 57, 0.04);
+  --s-box-shadow-tertiary: 0 6px 16px -8px rgba(10, 27, 57, 0.08), 0 9px 28px 0 rgba(10, 27, 57, 0.04),
+    0 12px 48px 16px rgba(10, 27, 57, 0.02);
 
   // vertical margins
   --s-margin-lg: 24px;
