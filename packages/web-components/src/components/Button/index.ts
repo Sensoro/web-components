@@ -4,14 +4,16 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styles } from './style';
 
-type ButtonType = 'small' | 'default' | 'large';
+import type { ButtonShape, ButtonType } from './utils';
+
+type SizeType = 'small' | 'middle' | 'large' | undefined;
 
 const prefixCls = 's-btn';
 
-const sizeClassNameMap: Record<ButtonType, string | undefined> = {
-  large: 'lg',
+const sizeClassNameMap = {
   small: 'sm',
-  default: undefined,
+  middle: undefined,
+  large: 'lg',
 };
 
 /**
@@ -28,15 +30,15 @@ export class Button extends LitElement {
 
   /** 按钮类型 */
   @property({ reflect: true })
-  type: 'default' | 'primary' | 'dashed' | 'link' | 'text' = 'default';
+  type: ButtonType = 'default';
 
   /** 按钮形状 */
   @property({ reflect: true })
-  shape: ButtonType = 'default';
+  shape: ButtonShape = 'default';
 
   /** 按钮大小 */
   @property({ reflect: true })
-  size: 'small' | 'default' | 'large' = 'default';
+  size: SizeType;
 
   /** 是否禁用 */
   @property({ type: Boolean, reflect: true })
@@ -81,6 +83,7 @@ export class Button extends LitElement {
           [`${prefixCls}-dangerous`]: this.danger,
         })}
         ?disabled=${ifDefined(isLink ? undefined : this.disabled)}
+        aria-disabled=${this.disabled ? 'true' : 'false'}
       >
         <span>
           <slot part="label"></slot>
