@@ -6,7 +6,7 @@
     "make:style": "wireit",
     "make:metadata": "wireit",
     "build": "wireit",
-    "build:wc": "wireit",
+    "build:web": "wireit",
     "build:react": "wireit",
     "install:frozen": "wireit",
     "release:rc": "wireit",
@@ -18,9 +18,10 @@
     "changeset:pre-exit": "wireit",
     "changeset:version": "wireit",
     "changeset:publish": "wireit",
+    "site": "wireit",
+    "deploy": "pnpm site && gh-pages -d storybook-static -b gh-pages -f",
     "prepare": "husky install",
-    "preinstall": "npx only-allow pnpm",
-    "storybook:build": "storybook build"
+    "preinstall": "npx only-allow pnpm"
   },
   "license": "MIT",
   "devDependencies": {
@@ -43,6 +44,7 @@
     "@umijs/utils": "^4.0.71",
     "command-line-args": "^5.2.1",
     "father": "^4.2.3",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.0",
     "less": "^4.1.3",
     "lint-staged": "^13.2.2",
@@ -72,11 +74,18 @@
     "start": {
       "command": "storybook dev -p 6006",
       "dependencies": [
-        "make:wc",
+        "make:web",
         "make:react"
       ]
     },
-    "make:wc": {
+    "site": {
+      "command": "storybook build",
+      "dependencies": [
+        "make:web",
+        "make:react"
+      ]
+    },
+    "make:web": {
       "dependencies": [
         "make:style",
         "make:metadata"
@@ -115,7 +124,7 @@
     },
     "build": {
       "dependencies": [
-        "build:wc",
+        "build:web",
         "build:react"
       ]
     },
@@ -132,7 +141,7 @@
         "make:react"
       ]
     },
-    "build:wc": {
+    "build:web": {
       "command": "pnpm --parallel --filter @sensoro-design/web build",
       "files": [
         "./packages/web-components/src/**/*"
@@ -171,7 +180,7 @@
     "changeset:publish": {
       "command": "changeset publish",
       "dependencies": [
-        "build:wc",
+        "build:web",
         "build:react"
       ]
     },

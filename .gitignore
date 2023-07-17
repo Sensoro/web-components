@@ -9,10 +9,11 @@ packages/react/src/**
 
 **/components/**/style/index.ts
 
+storybook-static
 .changeset/pre.json
 .changeset/moody-*
 
-*.css
+packages/web-components/**/*.css
 custom-elements.json
 .wireit/
 
