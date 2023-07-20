@@ -11,7 +11,7 @@
   "linked": [],
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["docs", "sensoro-scripts"],
+  "ignore": ["sensoro-scripts", "vite-react"],
   "snapshot": {
     "useCalculatedVersion": true,
     "prereleaseTemplate": "{tag}-{commit}-{datetime}"
