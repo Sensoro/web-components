@@ -1,42 +1,38 @@
 import { html } from 'lit';
-import { Button } from '../index';
+import { Icon } from '../index';
 import '../index';
+import AccountBookFilled from '../../../icons/AccountBookFilled';
 
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-new Button();
+new Icon();
 
 // More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 const meta: Meta = {
-  title: 'Button',
-  render: (args) => {
-    return html` <s-button type=${args.type} ?disabled=${args.disabled}> 主要按钮 </s-button> `;
+  title: 'Icon',
+  render: () => {
+    return html`
+      <span>
+        <s-icon .icon=${AccountBookFilled}></s-icon>
+      </span>
+    `;
   },
   tags: ['docsPage'],
   argTypes: {
-    type: {
+    color: {
       options: ['default', 'primary'],
       control: {
         type: 'select',
       },
     },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-    },
   },
   args: {
     type: 'primary',
   },
+};
+
+export const Color: StoryObj = {
+  args: {},
 };
 
 export default meta;
-
-type Story = StoryObj;
-
-export const Type: Story = {
-  args: {
-    type: 'primary',
-  },
-};

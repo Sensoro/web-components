@@ -95,7 +95,7 @@ export class Button extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'l-button': Button;
+    's-button': Button;
   }
 }
 

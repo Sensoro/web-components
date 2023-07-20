@@ -1,0 +1,49 @@
+@import '../../../styles/index';
+
+@icon-prefix-cls: ~'@{sen-prefix}-btn';
+
+.@{icon-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+
+  & > * {
+    line-height: 1;
+  }
+
+  & svg {
+    display: inline-block;
+  }
+
+  &::before {
+    display: none;
+  }
+
+  &[tabindex] {
+    cursor: pointer;
+  }
+
+  &-spin,
+  &-spin::before {
+    display: inline-block;
+    animation: loadingCircle 1s infinite linear;
+  }
+}
+
+@-webkit-keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
