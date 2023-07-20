@@ -16,7 +16,6 @@ const index: string[] = [];
   components.forEach((component) => {
     if (!component.tagName) return;
     const tagWithoutPrefix = lodash.startCase(component.tagName.replace(/^s-/, '')).replace(' ', '');
-    console.log(tagWithoutPrefix);
     const componentDir = path.join(reactDir, 'components', tagWithoutPrefix);
     const componentFile = path.join(componentDir, 'index.ts');
     const importPath = '@sensoro-design/web/es/' + component.path;
