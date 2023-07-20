@@ -5,6 +5,7 @@
     "make:react": "wireit",
     "make:style": "wireit",
     "make:metadata": "wireit",
+    "copy:icons": "sensoro-scripts copy-icons",
     "build": "wireit",
     "build:web": "wireit",
     "build:react": "wireit",
@@ -21,6 +22,7 @@
     "site": "wireit",
     "deploy": "pnpm site && gh-pages -d storybook-static -b gh-pages -f",
     "prepare": "husky install",
+    "check": "tsc --noEmit",
     "preinstall": "npx only-allow pnpm"
   },
   "license": "MIT",
@@ -29,6 +31,7 @@
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.6.6",
     "@pansy/commitlint-config": "^1.0.0",
+    "@sensoro-design/icons-svg": "2.14.2",
     "@sensoro-design/web": "workspace:*",
     "@sensoro-design/web-react": "workspace:*",
     "@storybook/addon-essentials": "^7.0.27",

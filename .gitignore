@@ -14,6 +14,7 @@ storybook-static
 .changeset/moody-*
 
 packages/web-components/**/*.css
+packages/web-components/src/icons
 custom-elements.json
 .wireit/
 
