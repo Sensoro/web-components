@@ -6,7 +6,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { styles } from './style';
 import { renderIconDefinitionToSVGElement } from './utils/helpers';
 
-import type { IconDefinition } from './types';
+import type { IconDefinition } from '../../types';
 
 const prefixCls = 's-icon';
 
@@ -49,3 +49,11 @@ export class Icon extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    's-icon': Icon;
+  }
+}
+
+export default Icon;

@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { Icon } from '../index';
 import '../index';
 import AccountBookFilled from '../../../icons/AccountBookFilled';
+import AccountBookOutlined from '../../../icons/AccountBookOutlined';
 
 import type { Meta, StoryObj } from '@storybook/web-components';
 
@@ -14,6 +15,7 @@ const meta: Meta = {
     return html`
       <span>
         <s-icon .icon=${AccountBookFilled}></s-icon>
+        <s-icon .icon=${AccountBookOutlined}></s-icon>
       </span>
     `;
   },

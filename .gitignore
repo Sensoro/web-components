@@ -5,7 +5,8 @@ packages/*/lib/
 packages/*/es/
 dist
 
-packages/react/src/**
+packages/react/src/components/**
+packages/react/src/icons/**
 
 **/components/**/style/index.ts
 

@@ -1,3 +1,5 @@
+export type ThemeType = 'filled' | 'outlined' | 'twotone' | 'purely';
+export type ThemeTypeUpperCase = 'Filled' | 'Outlined' | 'TwoTone' | 'Purely';
 export interface AbstractNode {
   tag: string;
   attrs: {
@@ -11,5 +13,3 @@ export interface IconDefinition {
   theme: ThemeType;
   icon: ((primaryColor: string, secondaryColor: string) => AbstractNode) | AbstractNode;
 }
-
-export type ThemeType = 'filled' | 'outlined';

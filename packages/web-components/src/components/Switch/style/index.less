@@ -1,0 +1,109 @@
+@import '../../../styles/index';
+
+@switch-prefix-cls: ~'@{sen-prefix}-switch';
+
+:host {
+  display: inline-block;
+}
+
+.@{switch-prefix-cls} {
+  box-sizing: border-box;
+  margin: 0;
+  color: var(--s-color-grey-opacity-3);
+  line-height: 22px;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  min-width: 40px;
+  vertical-align: middle;
+  background-image: linear-gradient(90deg, var(--s-color-grey-opacity-3), var(--s-color-grey-opacity-3)),
+    linear-gradient(90deg, var(--s-color-white), var(--s-color-white));
+  border: 0;
+  transition: all 0.2s;
+  user-select: none;
+  cursor: pointer;
+
+  font-size: var(--s-font-size);
+  height: 22px;
+  padding: 0;
+  border-radius: 100px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus:hover {
+    box-shadow: none;
+  }
+
+  &-checked {
+    background: var(--s-color-primary);
+  }
+
+  // ========================= Hover ==========================
+  &:not(&-disabled):hover {
+    background-image: linear-gradient(90deg, var(--s-color-grey-opacity-4), var(--s-color-grey-opacity-4)),
+      linear-gradient(90deg, var(--s-color-white), var(--s-color-white));
+  }
+
+  &-loading,
+  &-disabled {
+    cursor: not-allowed;
+
+    * {
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &-input {
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  // ========================= Inner ==========================
+  &-inner {
+    display: block;
+    overflow: hidden;
+    border-radius: 100px;
+    height: 100%;
+    padding-inline-start: 24px;
+    padding-inline-end: 9px;
+    transition: padding-inline-start 0.2s ease-in-out, padding-inline-end 0.2s ease-in-out;
+
+    &-checked,
+    &-unchecked {
+      display: block;
+      color: #fff;
+      font-size: 12px;
+      transition: margin-inline-start 0.2s ease-in-out, margin-inline-end 0.2s ease-in-out;
+      pointer-events: none;
+    }
+  }
+
+  // ========================= Handle =========================
+  &-handle {
+    position: absolute;
+    top: 2px;
+    inset-inline-start: 2px;
+    width: 18px;
+    height: 18px;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      inset-inline-end: 0;
+      bottom: 0;
+      inset-inline-start: 0;
+      background-color: #fff;
+      border-radius: 9px;
+      box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+      transition: all 0.2s ease-in-out;
+      content: '';
+    }
+  }
+}

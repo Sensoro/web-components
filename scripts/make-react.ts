@@ -1,4 +1,6 @@
 import 'zx/globals';
+import path from 'node:path';
+import { fsExtra, lodash } from '@umijs/utils';
 import prettier from '@umijs/utils/compiled/prettier';
 import { PATHS } from './.internal/constants';
 import { getAllComponents } from './utils';
@@ -11,15 +13,16 @@ const index: string[] = [];
 
   const components = getAllComponents(metadata);
 
-  components.forEach(component => {
+  components.forEach((component) => {
     if (!component.tagName) return;
-    const tagWithoutPrefix = component.tagName.replace(/^l-/, '');
-    const componentDir = path.join(reactDir, tagWithoutPrefix);
+    const tagWithoutPrefix = lodash.startCase(component.tagName.replace(/^s-/, '')).replace(' ', '');
+    console.log(tagWithoutPrefix);
+    const componentDir = path.join(reactDir, 'components', tagWithoutPrefix);
     const componentFile = path.join(componentDir, 'index.ts');
-    const importPath = '@sensoro-design/web/es/' + component.path
+    const importPath = '@sensoro-design/web/es/' + component.path;
     const events = (component.events || []).map((event: any) => `${event.reactName}: '${event.name}'`).join(',\n');
 
-    fs.mkdirSync(componentDir, { recursive: true });
+    fsExtra.mkdirSync(componentDir, { recursive: true });
 
     const source = prettier.format(
       `
@@ -38,14 +41,14 @@ const index: string[] = [];
       `,
       {
         parser: 'typescript',
-      }
+      },
     );
 
-    index.push(`export { default as ${component.name} } from './${tagWithoutPrefix}/index.js';`);
+    index.push(`export { default as ${component.name} } from './components/${tagWithoutPrefix}/index.js';`);
 
-    fs.writeFileSync(componentFile, source, 'utf8');
-  })
+    fsExtra.writeFileSync(componentFile, source, 'utf8');
+  });
 
   // Generate the index file
-  fs.writeFileSync(path.join(reactDir, 'index.ts'), index.join('\n'), 'utf8');
+  fsExtra.writeFileSync(path.join(reactDir, 'index.ts'), index.join('\n'), 'utf8');
 })();

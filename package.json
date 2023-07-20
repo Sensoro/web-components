@@ -75,7 +75,7 @@
   },
   "wireit": {
     "start": {
-      "command": "storybook dev -p 6006",
+      "command": "storybook dev -p 6008",
       "dependencies": [
         "make:web",
         "make:react"
@@ -97,7 +97,11 @@
     "make:react": {
       "command": "sensoro-scripts make-react",
       "files": [
+        "scripts/mark-react.ts",
         "./packages/web-components/custom-elements.json"
+      ],
+      "output": [
+        "./packages/react/src/components/**/*.ts"
       ],
       "dependencies": [
         "make:metadata"
