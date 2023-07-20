@@ -13,6 +13,7 @@ packages/react/src/icons/**
 storybook-static
 .changeset/pre.json
 .changeset/moody-*
+.changeset/heavy-*
 
 packages/web-components/**/*.css
 packages/web-components/src/icons
