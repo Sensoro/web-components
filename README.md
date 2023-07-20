@@ -6,6 +6,19 @@
 
 </div>
 
+## 事项清单
+
+- [x] 接入 storybook
+- [x] less 编写样式
+- [x] 测试接入
+
+## 组件清单
+
+- [x] Button
+- [x] Icon
+- [x] ImageComparer
+- [] Switch
+
 ```sh
 # 安装以来
 pnpm i

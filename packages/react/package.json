@@ -1,17 +1,24 @@
 {
   "name": "@sensoro-design/web-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "es/index.d.ts",
+  "description": "@sensoro-design/web react components",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "build": "pnpm build:tsc && father build",
-    "build:tsc": "tsc --project ./tsconfig.prod.json --outdir es"
+    "build": "tsc --project ./tsconfig.prod.json --outdir dist"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js"
+    }
   },
   "files": [
-    "es",
-    "lib"
+    "dist"
   ],
   "keywords": [],
   "author": "",
