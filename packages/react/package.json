@@ -15,13 +15,18 @@
     "./icons/*": {
       "types": "./dist/icons/*.d.ts",
       "import": "./dist/icons/*.js"
-    }
+    },
+    "./themes/*": "./themes/*"
   },
   "files": [
-    "dist"
+    "dist",
+    "themes"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "wangxingkang",
   "license": "MIT",
   "dependencies": {
     "@lit-labs/react": "^1.2.0",
