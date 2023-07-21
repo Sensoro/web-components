@@ -68,7 +68,6 @@ export class Button extends LitElement {
 
   override render() {
     const isLink = this.isLink();
-
     const sizeCls = this.size ? sizeClassNameMap[this.size] || '' : '';
 
     return html`
@@ -77,7 +76,7 @@ export class Button extends LitElement {
           [prefixCls]: true,
           [`${prefixCls}-${this.shape}`]: this.shape !== 'default' && this.shape,
           [`${prefixCls}-${this.type}`]: this.type,
-          [`${prefixCls}-${sizeCls}`]: sizeCls,
+          [`${prefixCls}-${sizeCls}`]: !!sizeCls,
           [`${prefixCls}-block`]: this.block,
           [`${prefixCls}-loading`]: this.loading,
           [`${prefixCls}-dangerous`]: this.danger,
@@ -85,6 +84,9 @@ export class Button extends LitElement {
         ?disabled=${ifDefined(isLink ? undefined : this.disabled)}
         aria-disabled=${this.disabled ? 'true' : 'false'}
       >
+        <span class="${prefixCls}-icon">
+          <slot part="icon" name="icon"></slot>
+        </span>
         <span>
           <slot part="label"></slot>
         </span>

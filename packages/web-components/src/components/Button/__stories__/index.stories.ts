@@ -10,7 +10,11 @@ new Button();
 const meta: Meta = {
   title: 'Button',
   render: (args) => {
-    return html` <s-button type=${args.type} ?disabled=${args.disabled}> 主要按钮 </s-button> `;
+    return html`
+      <s-button type=${args.type} size=${args.size} ?block=${args.block} ?disabled=${args.disabled}>
+        主要按钮
+      </s-button>
+    `;
   },
   tags: ['docsPage'],
   argTypes: {
@@ -20,7 +24,18 @@ const meta: Meta = {
         type: 'select',
       },
     },
+    size: {
+      options: ['small', 'middle', 'large'],
+      control: {
+        type: 'select',
+      },
+    },
     disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    block: {
       control: {
         type: 'boolean',
       },
@@ -36,6 +51,18 @@ export default meta;
 type Story = StoryObj;
 
 export const Type: Story = {
+  args: {
+    type: 'primary',
+  },
+};
+
+export const Size: Story = {
+  args: {
+    size: 'small',
+  },
+};
+
+export const Block: Story = {
   args: {
     type: 'primary',
   },
