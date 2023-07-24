@@ -99,12 +99,38 @@
     width: 100%;
   }
 
-  // -------- Size -----------
+  &-icon-only {
+    width: var(--s-control-height);
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+
+  // ============================== Size ===============================
   &-sm {
     font-size: var(--s-font-size-sm);
     height: var(--s-control-height-sm);
     line-height: var(--s-line-height-sm);
     padding: 1.6px 7px;
-    border-radius: var(--s-border-radius-small);
+
+    &.@{button-prefix-cls}-icon-only {
+      width: var(--s-control-height-sm);
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
   }
+
+  &-lg {
+    font-size: var(--s-font-size-lg);
+    height: var(--s-control-height-lg);
+    line-height: var(--s-line-height-lg);
+    padding: 6.4px 15px;
+
+    &.@{button-prefix-cls}-icon-only {
+      width: var(--s-control-height-lg);
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
+  }
+
+  // ============================== Shape ===============================
 }

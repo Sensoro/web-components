@@ -8,7 +8,8 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {
-    autodocs: 'tag',
+    autodocs: true,
+    defaultName: '文档',
   },
 };
 export default config;

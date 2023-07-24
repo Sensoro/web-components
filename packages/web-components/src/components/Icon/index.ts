@@ -1,9 +1,9 @@
-import { LitElement } from 'lit';
 import { html } from 'lit/static-html.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styles } from './style';
+import ShoelaceElement from '../../internal/shoelaceElement';
 import { renderIconDefinitionToSVGElement } from './utils/helpers';
 
 import type { IconDefinition } from '../../types';
@@ -11,7 +11,7 @@ import type { IconDefinition } from '../../types';
 const prefixCls = 's-icon';
 
 @customElement('s-icon')
-export class Icon extends LitElement {
+export class Icon extends ShoelaceElement {
   static override styles = styles;
 
   /** 按钮类型 */

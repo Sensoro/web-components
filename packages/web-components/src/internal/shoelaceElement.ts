@@ -62,7 +62,7 @@ type GetCustomEventType<T> = T extends keyof GlobalEventHandlersEventMap
 // `keyof ValidEventTypeMap` is equivalent to `keyof GlobalEventHandlersEventMap` but gives a nicer error message
 type ValidEventTypeMap = EventTypesWithRequiredDetail | EventTypesWithoutRequiredDetail;
 
-export class ShoelaceElement extends LitElement {
+export default class ShoelaceElement extends LitElement {
   // Make localization attributes reactive
   @property() dir: string;
   @property() lang: string;
@@ -70,22 +70,22 @@ export class ShoelaceElement extends LitElement {
   /** Emits a custom event with more convenient defaults. */
   emit<T extends string & keyof EventTypesWithoutRequiredDetail>(
     name: EventTypeDoesNotRequireDetail<T>,
-    options?: SlEventInit<T> | undefined
+    options?: SlEventInit<T> | undefined,
   ): GetCustomEventType<T>;
   emit<T extends string & keyof EventTypesWithRequiredDetail>(
     name: EventTypeRequiresDetail<T>,
-    options: SlEventInit<T>
+    options: SlEventInit<T>,
   ): GetCustomEventType<T>;
   emit<T extends string & keyof ValidEventTypeMap>(
     name: T,
-    options?: SlEventInit<T> | undefined
+    options?: SlEventInit<T> | undefined,
   ): GetCustomEventType<T> {
     const event = new CustomEvent(name, {
       bubbles: true,
       cancelable: false,
       composed: true,
       detail: {},
-      ...options
+      ...options,
     });
 
     this.dispatchEvent(event);

@@ -14,3 +14,5 @@ export interface IconDefinition {
   theme: ThemeType;
   icon: ((primaryColor: string, secondaryColor: string) => AbstractNode) | AbstractNode;
 }
+
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
