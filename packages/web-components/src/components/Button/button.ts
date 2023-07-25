@@ -4,7 +4,10 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { HasSlotController } from '../../internal/slot.js';
 import ShoelaceElement from '../../internal/shoelaceElement.js';
+import LoadingPurely from '../../icons/LoadingPurely';
 import { styles } from './style';
+
+import '../Icon';
 
 import type { ButtonShape, ButtonType } from './helpers';
 import type { SizeType } from '../../types';
@@ -19,9 +22,11 @@ const sizeClassNameMap = {
 
 /**
  * @summary 按钮组件
- * @documentation https://shoelace.style/components/button
+ * @documentation https://sensoro.github.io/web-components/?path=/docs/button--docs
  * @status stable
  * @since 2.0
+ *
+ * @dependency s-icon
  */
 @customElement('s-button')
 export class Button extends ShoelaceElement {
@@ -90,6 +95,7 @@ export class Button extends ShoelaceElement {
         aria-disabled=${this.disabled ? 'true' : 'false'}
         tabindex=${this.disabled ? '-1' : '0'}
       >
+        ${this.loading ? html`<s-icon spin .icon=${LoadingPurely}></s-icon>` : ''}
         <slot name="icon" part="icon" class="${prefixCls}-icon"></slot>
         <slot part="label"></slot>
       </button>

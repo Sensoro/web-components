@@ -16,6 +16,7 @@ interface IArgs {
   shape: ButtonShape;
   size: ButtonSize;
   block: boolean;
+  loading: boolean;
   disabled: boolean;
 }
 
@@ -65,6 +66,12 @@ const meta: Meta<IArgs> = {
         type: 'boolean',
       },
     },
+    loading: {
+      description: '设置按钮载入状态',
+      control: {
+        type: 'boolean',
+      },
+    },
     block: {
       description: '将按钮宽度调整为其父宽度的选项',
       control: {
@@ -104,7 +111,9 @@ export default meta;
 export const ButtonDefault: Story = {
   name: 'default',
   render: (args) => html`
-    <s-button type=${args.type} size=${args.size} ?disabled=${args.disabled}>默认按钮</s-button>
+    <s-button type=${args.type} size=${args.size} ?loading=${args.loading} ?disabled=${args.disabled}>
+      默认按钮
+    </s-button>
   `,
   args: {},
 };
@@ -124,11 +133,11 @@ export const Type: Story = {
 export const Icon: Story = {
   name: 'icon',
   render: (args) => html`
-    <s-button type=${args.type} size=${args.size} ?disabled=${args.disabled}>
+    <s-button type=${args.type} ?loading=${args.loading} size=${args.size} ?disabled=${args.disabled}>
       <s-icon slot="icon" .icon=${AccountBookFilled}></s-icon>
       主要按钮
     </s-button>
-    <s-button type=${args.type} size=${args.size} ?disabled=${args.disabled}>
+    <s-button type=${args.type} ?loading=${args.loading} size=${args.size} ?disabled=${args.disabled}>
       <s-icon slot="icon" .icon=${SearchOutlined}></s-icon>
     </s-button>
   `,
@@ -150,6 +159,19 @@ export const Size: Story = {
 export const Block: Story = {
   name: 'block',
   render: (args) => html` <s-button type=${args.type} block>主要按钮</s-button> `,
+  args: {
+    type: 'primary',
+  },
+};
+
+export const Circle: Story = {
+  name: 'circle',
+  render: (args) => html`
+    <s-button type=${args.type} size=${args.size} ?disabled=${args.disabled} shape="circle">A</s-button>
+    <s-button type=${args.type} size=${args.size} ?disabled=${args.disabled} shape="circle">
+      <s-icon slot="icon" .icon=${SearchOutlined}></s-icon>
+    </s-button>
+  `,
   args: {
     type: 'primary',
   },

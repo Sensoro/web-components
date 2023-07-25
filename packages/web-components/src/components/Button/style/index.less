@@ -27,6 +27,10 @@
     line-height: 0;
   }
 
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
   &:disabled > * {
     pointer-events: none;
   }
@@ -105,6 +109,23 @@
     padding-inline-end: 0;
   }
 
+  &-loading {
+    pointer-events: none;
+    cursor: not-allowed;
+
+    & .@{button-prefix-cls}-icon {
+      display: none;
+    }
+  }
+
+  // ============================== Shape ===============================
+  &-circle {
+    min-width: var(--s-control-height);
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border-radius: 50%;
+  }
+
   // ============================== Size ===============================
   &-sm {
     font-size: var(--s-font-size-sm);
@@ -116,6 +137,13 @@
       width: var(--s-control-height-sm);
       padding-inline-start: 0;
       padding-inline-end: 0;
+    }
+
+    &.@{button-prefix-cls}-circle {
+      width: var(--s-control-height-sm);
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      border-radius: 50%;
     }
   }
 
@@ -130,7 +158,12 @@
       padding-inline-start: 0;
       padding-inline-end: 0;
     }
-  }
 
-  // ============================== Shape ===============================
+    &.@{button-prefix-cls}-circle {
+      width: var(--s-control-height-lg);
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+      border-radius: 50%;
+    }
+  }
 }
