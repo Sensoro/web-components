@@ -165,9 +165,6 @@ importers:
       '@ctrl/tinycolor':
         specifier: ^3.6.0
         version: registry.npmmirror.com/@ctrl/tinycolor@3.6.0
-      '@lit-labs/context':
-        specifier: ^0.3.3
-        version: registry.npmmirror.com/@lit-labs/context@0.3.3
       '@shoelace-style/localize':
         specifier: ^3.1.1
         version: registry.npmmirror.com/@shoelace-style/localize@3.1.1
@@ -4630,15 +4627,6 @@ packages:
     name: '@juggle/resize-observer'
     version: 3.4.0
     dev: true
-
-  registry.npmmirror.com/@lit-labs/context@0.3.3:
-    resolution: {integrity: sha512-5pWPLiXJnx8fZREF4w7RXBwJOxqRBJ57tujo7k23s0ZDfnSltomvYGW4kTOurXfyzDR0OLBBkv9xsWGDhauqew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@lit-labs/context/-/context-0.3.3.tgz}
-    name: '@lit-labs/context'
-    version: 0.3.3
-    dependencies:
-      '@lit/reactive-element': registry.npmmirror.com/@lit/reactive-element@1.6.2
-      lit: registry.npmmirror.com/lit@2.7.6
-    dev: false
 
   registry.npmmirror.com/@lit-labs/react@1.2.0:
     resolution: {integrity: sha512-AIfHLsy4Uk0MSxZTVLrtmdkGnAgCOoAvBCAvTdOXsqp60Vb4zZTUpc0C3CJQ6e8FjM6JL0avOFFBo3XcfARq2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@lit-labs/react/-/react-1.2.0.tgz}
@@ -11638,6 +11626,7 @@ packages:
     name: iconv-lite
     version: 0.6.3
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       safer-buffer: registry.npmmirror.com/safer-buffer@2.1.2
     dev: true
@@ -12980,6 +12969,7 @@ packages:
       '@lit/reactive-element': registry.npmmirror.com/@lit/reactive-element@1.6.2
       lit-element: registry.npmmirror.com/lit-element@3.3.2
       lit-html: registry.npmmirror.com/lit-html@2.7.5
+    dev: true
 
   registry.npmmirror.com/load-yaml-file@0.2.0:
     resolution: {integrity: sha512-OfCBkGEw4nN6JLtgRidPX6QxjBQGQf72q3si2uvqyFEMbycSFFHwAZeXx6cJgFM9wmLrf9zBwCP3Ivqa+LLZPw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/load-yaml-file/-/load-yaml-file-0.2.0.tgz}
@@ -15194,6 +15184,7 @@ packages:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prr/-/prr-1.0.1.tgz}
     name: prr
     version: 1.0.1
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -15958,6 +15949,7 @@ packages:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sax/-/sax-1.2.4.tgz}
     name: sax
     version: 1.2.4
+    requiresBuild: true
     dev: true
     optional: true
 
